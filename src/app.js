@@ -1,7 +1,6 @@
 const express = require('express');
-
+const parser = require('rss-parser');
 const mustache = require('mustache-express');
-const _ = require('lodash');
 
 const port = 3000;
 let source = "https://www.reddit.com/r/node.rss";
@@ -12,7 +11,6 @@ app.set('view engine' ,'html');
 app.set('views' , __dirname + '/views');
 
 app.get('/', function (req, res) {
-  const parser = require('rss-parser');
   let reader = new parser();
   source = req.query.source != null ? req.query.source : source;
   (async () => {
