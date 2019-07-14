@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <form method="get">
+    <div class="input-group mb-3">
+        <input name="source" value="{{ source }}" type="text" class="form-control" placeholder="Source" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">Load</button>
+        </div>
+    </div>
+    </form>
+
+    <h2>{{ data.title }}</h2>
+    <table id="table" class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Publish Date</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {{#data.items}}
+        <tr>
+            <td>
+                <a href="{{ link }}" target="_blank">
+                    {{ title }}
+                </a>
+            </td>
+            <td>
+                {{ pubDate }}
+            </td>
+        </tr>
+
+        {{/data.items}}
+
+        </tbody>
+    </table>
+</div>
+<script type="application/javascript">
+$(document).ready(function () {
+    $('#table').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+});
+</script>
+</body>
+</html>

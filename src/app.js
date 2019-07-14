@@ -1,16 +1,25 @@
-const http = require('http');
-const hostname = '127.0.0.1';
+const express = require('express');
+
+const mustache = require('mustache-express');
+const _ = require('lodash');
+
 const port = 3000;
+let source = "https://www.reddit.com/r/node.rss";
+let app = express();
 
-const server = http.createServer((req, res) => {
-  console.log(req);
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+app.engine('html', mustache());
+app.set('view engine' ,'html');
+app.set('views' , __dirname + '/views');
+
+app.get('/', function (req, res) {
+  const parser = require('rss-parser');
+  let reader = new parser();
+  source = req.query.source != null ? req.query.source : source;
+  (async () => {
+    let feed = await reader.parseURL(source);
+    res.render('index', {"data": feed, "source": source })
+  })();
+})
 
 
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
