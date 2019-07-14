@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-test",
+  "version": "1.0.0",
+  "description": "nodejs image demo",
+  "author": "Wally <wally.noveno@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.14",
+    "router": "^1.3.3",
+    "rss-parser": "^3.7.2"
+  },
+  "scripts": {
+    "start": "nodemon --inspect=0.0.0.0 src/app.js"
+  }
+}
