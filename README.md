@@ -13,17 +13,23 @@ Option 2 local node
 4. Access the app on the browser at `127.0.0.1:3000`
 
 ## Question 1
-1. First solution at `/`
+1. solution at `/`
    * Used express for routing and managing requests
    * Used bootstrap for styling
    * Used datatable for sorting
    * Used rss-parser
+   * Used mustache for basic template rendering
    
 ## Question 2
  File is at `src/validate.js`
- enter CLI
+ 
+ if docker
  
 `docker-compose exec web sh`
+
+`node src/validate.js`  
+
+ if local
 
 `node src/validate.js`  
 
