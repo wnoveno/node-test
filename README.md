@@ -1,14 +1,14 @@
 # node-test
-##Setup
+## Setup
 
 1. `docker-machine start`
 2. `docker-compose build`
 3. `docker-compose up -d`
 
-##Question 1
+## Question 1
 Access the app on the browser at `[docker-machine ip]:3000`
 
-##Question 2
+## Question 2
  File is at `src/validate.js`
  enter CLI
  
